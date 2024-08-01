@@ -150,7 +150,6 @@ for k, v in orgs.items():
     # this section is to help find maps that have no operational layers, feature collections, layers with links to http, or other
     differences = pd.merge(dfc, df, indicator=True, how='outer').query('_merge=="left_only"').drop('_merge', axis=1)
     output_file = r"\\SharedDrive\OrganizationWebMapDependencies\{}_missingDependencies.csv".format(orgName)
-    organizationURL = r'https://org1.maps.arcgis.com/home/item.html?id='
     differences['Organization URL'] = k
     differences['Web Map Item URL'] = ''
     differences.to_csv(output_file, index=False)
@@ -162,7 +161,6 @@ masterDF = pd.DataFrame(master)
 masterDF.to_csv(r'\\SharedDrive\OrganizationWebMapDependencies\master_webMapDependencies.csv', index = False)
 differencesmaster = pd.merge(masterMap, masterDF, indicator=True, how='outer').query('_merge=="left_only"').drop('_merge', axis=1)
 master_output_file = r"\\SharedDrive\OrganizationWebMapDependencies\master_missingDependencies.csv"
-organizationURL = r'https://org1.maps.arcgis.com/home/item.html?id='
 differencesmaster['Organization URL'] = k
 differencesmaster['Web Map Item URL'] = ''
 differencesmaster.to_csv(master_output_file, index=False)

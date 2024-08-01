@@ -1,7 +1,8 @@
 # Author: jmriggsbee
 # Create Date: 2/7/2024
 # Edit Date: 2/16/2024
-# Description: Create a relational csv that shows the dependencies between web maps and map/feature services.
+# Description: Create a relational csv that shows the dependencies between web maps and map/feature services. 
+# Use with ArcGIS Insights to create a Link Graph to filter and find links between organizations. 
 
 import arcgis
 import collections
